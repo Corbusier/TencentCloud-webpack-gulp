@@ -1,0 +1,77 @@
+body{
+	margin:0;
+}
+h2,h3{
+	margin:0;
+	pading:0;
+}
+a{
+	color:#505254;
+	text-decoration:none;
+}
+#full-tip{
+	width:400px;
+	height:253px;
+	border:1px solid #c8ccd3;
+	position: absolute;
+	left: 0;
+	top:0;
+	background-color:#fff;
+	box-shadow:3px 3px 6px -2px #000;
+	transition:.3s;
+}
+.title{
+	height:60px;
+	border-bottom:1px solid #d8dce5;
+	cursor:move;
+}
+.title .titleName{
+	color:#020202;
+	font:18px/18px "微软雅黑";
+	float:left;
+	margin:22px 0 0 18px;
+}
+.title .close{
+	color:#747ca9;
+	margin:12px 18px 0 0;
+	float:right;
+	font-size:24px;
+	cursor:pointer;
+}
+.title .close:hover{
+	color:#000;
+}
+// .content{
+// 	height:192px;
+// }
+.content .tips{
+	padding:44px 92px 32px 92px;
+}
+.content .tips .asksure{
+	color:#020202;
+	font:16px/28px "黑体";
+}
+.content .tips .text{
+	color:#868686;
+	font:12px/24px "黑体";
+}
+.btnGroup{
+	float:right;
+	margin-right:21px;
+}
+.btnGroup a{
+	display:inline-block;
+	color:#505254;
+	width:90px;
+	height:34px;
+	border:1px solid #c7c9cf;
+	border-radius:34px;
+	text-align:center;
+	font:12px/34px "黑体";
+	margin-right:3px;
+}
+.btnGroup a:hover{
+	color:#fff;
+	background-color:#3091f2;
+	border:1px solid #3091f2;
+}
