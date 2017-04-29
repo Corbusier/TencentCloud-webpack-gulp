@@ -32,19 +32,7 @@
 	var treeMenu = document.getElementsByClassName("tree-menu")[0];
 	
 	treeMenu.innerHTML = createTreeHtml(datas,-1);
-
-	$(".tree-menu .ico").bind("click",function(ev){
-		$(ev.target).closest(".tree-title").toggleClass("show-list");
-		var $ulList = $(ev.target).closest(".tree-title").next();
-		if($(ev.target).closest(".tree-title").hasClass("show-list")){
-			$ulList.css("display","block");
-		}else{
-			$ulList.css("display","none");
-		}
-		//console.log($ulList)
-		console.log($(ev.target).closest(".tree-title").hasClass("show-list"));		
-	})
-
+	t.shrink();
 	//获取指定id对应的树形菜单的标题
 	function getTreeById(id){
 		var treeTitle = treeMenu.getElementsByClassName("tree-title");
@@ -77,11 +65,7 @@
 		//渲染文件区域
 		var childs = handle.getChildsById(datas,fileId);
 		//文件区没有子文件则显示背景图
-		if( childs.length ){
-			gEmpty.style.display = "none";
-		}else{
-			gEmpty.style.display = "block";
-		}
+		gEmpty.style.display = childs.length?"none":"block";
 		fileList.innerHTML = createFileHtml(datas,fileId);
 		currentId = fileId;
 		//一旦重新渲染,全选肯定是未勾选的
@@ -243,8 +227,6 @@
 
 	t.on(document,"mousedown",createFile);
 	function createFile(){
-		
-		console.log(create.isCreate);
 		if(!create.isCreate)return;
 
 		var firstElement = fileList.firstElementChild;
@@ -282,6 +264,7 @@
 					value.classList.remove("file-checked");
 				})
 				checkedAll.classList.remove("checked");
+				t.shrink();
 			}
 		}else{
 			fileList.removeChild(firstElement);
@@ -317,6 +300,7 @@
 					treeMenu.innerHTML = createTreeHtml(datas,-1);
 					render(currentId);
 					fullTip("ok","删除文件成功");
+					t.shrink();
 		        }
 			})
 		}else{
@@ -556,6 +540,7 @@
 				var self = handle.getSelfById(datas,re_obj.element.dataset.id);
 				self.title = value;
 				treeMenu.innerHTML = createTreeHtml(datas,-1);
+				t.shrink();
 			}
 		}
 		re_obj.fileTitle.style.display = "block";
@@ -613,6 +598,7 @@
 						}
 						//树形菜单的内容改变,需要重新渲染
 						treeMenu.innerHTML = createTreeHtml(datas,-1);
+						t.shrink();
 					}
 				}
 			})
@@ -624,7 +610,6 @@
 			//保存被选项在datas中的所有数据及子孙数据
 			var selectData = handle.getChildsByIdArr(datas,selectIdArr);
 			var error = document.getElementsByClassName("error")[0];
-
 
 			//将第一个目录加上背景色
 			var Cloud = treeMove.getElementsByClassName("tree-title")[0];

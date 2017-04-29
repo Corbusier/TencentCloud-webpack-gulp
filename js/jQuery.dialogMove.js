@@ -31,6 +31,7 @@
             this.cancel();
             this.resize();
             this.center();
+            this.fileShrink();
         },
         createHTML(){
             var strDiv = $("<div></div>");

@@ -52,6 +52,18 @@
 				}
 			}
 			return element.nodeType === 9 ? null : element;
+		},
+		//树形菜单的收缩
+		shrink(){
+			$(".tree-menu .ico").bind("click",function(ev){
+				$(ev.target).closest(".tree-title").toggleClass("show-list");
+				var $ulList = $(ev.target).closest(".tree-title").next();
+				if($(ev.target).closest(".tree-title").hasClass("show-list")){
+					$ulList.css("display","block");
+				}else{
+					$ulList.css("display","none");
+				}		
+			})
 		}
 	}
 	window.t = methods;
