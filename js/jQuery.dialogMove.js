@@ -1,4 +1,4 @@
-;(function(){
+;(function($,window,undefined,document){
     function DialogMove(obj){
         obj = obj || {};
         if(obj.constructor !== Object){
@@ -31,7 +31,6 @@
             this.cancel();
             this.resize();
             this.center();
-            this.fileShrink();
         },
         createHTML(){
             var strDiv = $("<div></div>");
@@ -145,4 +144,4 @@
     $.dialogMove = function(obj){
         new DialogMove(obj);
     }
-})()
+})(JQuery,window,undefined,document)
