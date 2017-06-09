@@ -11,10 +11,10 @@ function dialog(obj){
     for(var attr in obj){
         defaults[attr] = obj[attr];
     }
-    // new Drag({
-    //     targetEle: this.h3,
-    //     moveEle:diaDiv
-    // })
+    new Drag({
+        targetEle: this.h3,
+        moveEle:diaDiv
+    })
 
     var diaDiv = document.createElement("div");
     diaDiv.id = "full-tip";
